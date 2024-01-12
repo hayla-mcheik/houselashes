@@ -54,7 +54,7 @@
 <div class="col-md-6">
         <div class="mb-3">
             <label>Phone Number</label>
-            <input type="text" name="phone" value="{{ Auth::user()->userDetail->phone ?? '' }}" class="form-control" />
+            <input type="text" name="phone" value="{{ Auth::user()->userDetail->phone ?? '' }}" class="form-control" required/>
 </div>
 </div>
 

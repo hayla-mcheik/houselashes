@@ -19,7 +19,7 @@
                         </a>
                     </div>
                     <div class="main__logo">
-                        <h1 class="main__logo--title"><a class="main__logo--link" href="index.html">
+                        <h1 class="main__logo--title"><a class="main__logo--link"  href="{{ url('/') }}">
                             <img class="main__logo--img" src="/assets/img/logo.png" alt="logo-img" width="200">
                         </a></h1>
                     </div>
@@ -31,44 +31,13 @@
                              
                                     </a>                     
                                 </li>
-                                <li class="header__menu--items mega__menu--items">
-                                    <a class="header__menu--link" href="shop.html">Shop 
-                                        <svg class="menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12" height="7.41" viewBox="0 0 12 7.41">
-                                            <path  d="M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z" transform="translate(-6 -8.59)" fill="currentColor" opacity="0.7"/>
-                                        </svg>
+                                <li class="header__menu--items">
+                                    <a class="header__menu--link" href="{{ url('/collections') }}">Collections
                                     </a>
-                                    <div class="header__mega--menu__wrapper">
-                                        <ul class="header__mega--menu d-flex">
-                                            <li class="header__mega--menu__li">
-                                                <ul class="header__mega--sub__menu">
-                                                    <li class="header__mega--sub__menu_li"><a class="header__mega--sub__menu--title" href="shop.html">Shop Left Sidebar</a></li>
-                                                </ul>
-                                            </li>
-
-
-                                            <li class="header__mega--menu__li banner__child">
-                                                <div class="header__mega--menu__banner">
-                                                    <a href="shop.html">
-                                                        <img class="header__mega--menu__banner--img" src="assets/img/banner/banner-menu.webp" alt="banner">
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </li>
                  
 
-                                <li class="header__menu--items">
-                                    <a class="header__menu--link" href="#">Pages 
-                                        <svg class="menu__arrowdown--icon" xmlns="http://www.w3.org/2000/svg" width="12" height="7.41" viewBox="0 0 12 7.41">
-                                            <path  d="M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z" transform="translate(-6 -8.59)" fill="currentColor" opacity="0.7"/>
-                                        </svg>
-                                    </a>
-                                    <ul class="header__sub--menu">
-                                        <li class="header__sub--menu__items"><a href="about.html" class="header__sub--menu__link">About Us</a></li>
-                                        
-                                    </ul>
-                                </li>
+
                                 <li class="header__menu--items">
                                     <a class="header__menu--link" href="contact.html">Contact </a>  
                                 </li>
@@ -97,8 +66,8 @@
                                     <span class="visually-hidden">Wishlist (<livewire:frontend.wishlist-count />)</span> 
                                 </a>
                             </li>
-                            <li class="header__account--items header__minicart--items">
-                                <a class="header__account--btn minicart__open--btn" href="javascript:void(0)" data-offcanvas>
+                            <li class="header__account--items header__minicart--items" >
+                                <a class="header__account--btn minicart__open--btn" href="{{ url('/cart') }}">
                                     <span class="header__account--btn__icon">
                                         <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M12.25 7.66667V4.33333C12.25 3.44928 11.8549 2.60143 11.1517 1.97631C10.4484 1.35119 9.49456 1 8.5 1C7.50544 1 6.55161 1.35119 5.84835 1.97631C5.14509 2.60143 4.75 3.44928 4.75 4.33333V7.66667M1.9375 6H15.0625L16 16H1L1.9375 6Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -133,6 +102,11 @@
                                         </svg>
                                     </a>
                                     <ul class="header__sub--menu">
+                                        <li class="header__sub--menu__items">
+                                            <a class="dropdown-item"  href="{{ url('/profile') }}">
+                                            <i class="fa fa-user"></i> {{ __('Profile') }}
+                                            </a>
+                                        </li>
                                         <li class="header__sub--menu__items">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
   onclick="event.preventDefault();
@@ -270,13 +244,13 @@
                     </a>
                 </li>
                 <li class="offcanvas__sticky--toolbar__list">
-                    <a class="offcanvas__sticky--toolbar__btn minicart__open--btn" href="javascript:void(0)" data-offcanvas>
+                    <a class="offcanvas__sticky--toolbar__btn minicart__open--btn" href="{{ url('/cart') }}">
                         <span class="offcanvas__sticky--toolbar__icon"> 
                             <svg width="17" height="15" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13.2371 4H11.5261L8.5027 0.460938C8.29176 0.226562 7.9402 0.203125 7.70582 0.390625C7.47145 0.601562 7.44801 0.953125 7.63551 1.1875L10.0496 4H3.46364L5.8777 1.1875C6.0652 0.953125 6.04176 0.601562 5.80739 0.390625C5.57301 0.203125 5.22145 0.226562 5.01051 0.460938L1.98707 4H0.299574C0.135511 4 0.0183239 4.14062 0.0183239 4.28125V4.84375C0.0183239 5.00781 0.135511 5.125 0.299574 5.125H0.721449L1.3777 9.78906C1.44801 10.3516 1.91676 10.75 2.47926 10.75H11.0339C11.5964 10.75 12.0652 10.3516 12.1355 9.78906L12.7918 5.125H13.2371C13.3777 5.125 13.5183 5.00781 13.5183 4.84375V4.28125C13.5183 4.14062 13.3777 4 13.2371 4ZM11.0339 9.625H2.47926L1.86989 5.125H11.6433L11.0339 9.625ZM7.33082 6.4375C7.33082 6.13281 7.07301 5.875 6.76832 5.875C6.4402 5.875 6.20582 6.13281 6.20582 6.4375V8.3125C6.20582 8.64062 6.4402 8.875 6.76832 8.875C7.07301 8.875 7.33082 8.64062 7.33082 8.3125V6.4375ZM9.95582 6.4375C9.95582 6.13281 9.69801 5.875 9.39332 5.875C9.0652 5.875 8.83082 6.13281 8.83082 6.4375V8.3125C8.83082 8.64062 9.0652 8.875 9.39332 8.875C9.69801 8.875 9.95582 8.64062 9.95582 8.3125V6.4375ZM4.70582 6.4375C4.70582 6.13281 4.44801 5.875 4.14332 5.875C3.8152 5.875 3.58082 6.13281 3.58082 6.4375V8.3125C3.58082 8.64062 3.8152 8.875 4.14332 8.875C4.44801 8.875 4.70582 8.64062 4.70582 8.3125V6.4375Z" fill="currentColor"/>
                              </svg> 
                         </span>
-                        <span class="offcanvas__sticky--toolbar__label">Cart</span>
+                        <span class="offcanvas__sticky--toolbar__label" >Cart</span>
                         <span class="items__count">3</span> 
                     </a>
                 </li>
@@ -295,86 +269,7 @@
         </div>
         <!-- End Offcanvas sticky toolbar -->
 
-        <!-- Start offCanvas minicart -->
-        <div class="offCanvas__minicart">
-            <div class="minicart__header ">
-                <div class="minicart__header--top d-flex justify-content-between align-items-center">
-                    <h3 class="minicart__title"> Shopping Cart</h3>
-                    <button class="minicart__close--btn" aria-label="minicart close btn" data-offcanvas>
-                        <svg class="minicart__close--icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>
-                    </button>
-                </div>
-                <p class="minicart__header--desc">The Beauty and Cosmetic products are limited</p>
-            </div>
-            <div class="minicart__product">
-                <div class="minicart__product--items d-flex">
-                    <div class="minicart__thumb">
-                        <a href="product-details.html"><img src="assets/img/product/small-product/product1.webp" alt="prduct-img"></a>
-                    </div>
-                    <div class="minicart__text">
-                        <h4 class="minicart__subtitle"><a href="product-details.html">Z 7-8mm Button is </a></h4>
-                        <span class="color__variant"><b>Color:</b> Beige</span>
-                        <div class="minicart__price">
-                            <span class="minicart__current--price">$125.00</span>
-                            <span class="minicart__old--price">$140.00</span>
-                        </div>
-                        <div class="minicart__text--footer d-flex align-items-center">
-                            <div class="quantity__box minicart__quantity">
-                                <button type="button" class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
-                                <label>
-                                    <input type="number" class="quantity__number" value="1" data-counter />
-                                </label>
-                                <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
-                            </div>
-                            <button class="minicart__product--remove" type="button">Remove</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="minicart__product--items d-flex">
-                    <div class="minicart__thumb">
-                        <a href="product-details.html"><img src="assets/img/product/small-product/product2.webp" alt="prduct-img"></a>
-                    </div>
-                    <div class="minicart__text">
-                        <h4 class="minicart__subtitle"><a href="product-details.html">Z 7-8mm Button is
-                           </a></h4>
-                        <span class="color__variant"><b>Color:</b> Green</span>
-                        <div class="minicart__price">
-                            <span class="minicart__current--price">$115.00</span>
-                            <span class="minicart__old--price">$130.00</span>
-                        </div>
-                        <div class="minicart__text--footer d-flex align-items-center">
-                            <div class="quantity__box minicart__quantity">
-                                <button type="button" class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
-                                <label>
-                                    <input type="number" class="quantity__number" value="1" data-counter />
-                                </label>
-                                <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
-                            </div>
-                            <button class="minicart__product--remove" type="button">Remove</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="minicart__amount">
-                <div class="minicart__amount_list d-flex justify-content-between">
-                    <span>Sub Total:</span>
-                    <span><b>$240.00</b></span>
-                </div>
-                <div class="minicart__amount_list d-flex justify-content-between">
-                    <span>Total:</span>
-                    <span><b>$240.00</b></span>
-                </div>
-            </div>
-            <div class="minicart__conditions text-center">
-                <input class="minicart__conditions--input" id="accept" type="checkbox">
-                <label class="minicart__conditions--label" for="accept">I agree with the <a class="minicart__conditions--link" href="privacy-policy.html">Privacy Policy</a></label>
-            </div>
-            <div class="minicart__button d-flex justify-content-center">
-                <a class="primary__btn minicart__button--link"  href="{{ url('cart') }}">View cart</a>
-                <a class="primary__btn minicart__button--link" href="checkout.html">Checkout</a>
-            </div>
-        </div>
-        <!-- End offCanvas minicart -->
+
 
         <!-- Start serch box area -->
         <div class="predictive__search--box ">

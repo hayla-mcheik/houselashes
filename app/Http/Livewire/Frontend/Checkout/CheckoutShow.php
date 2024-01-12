@@ -110,17 +110,27 @@ public function totalProductAmount()
     return $this->totalProductAmount;
 }
 
-    public function render()
-    {
-        $this->fullname = auth()->user()->name;
-        $this->email = auth()->user()->email;
-        $this->phone = auth()->user()->userDetail->phone;
-        $this->pincode = auth()->user()->userDetail->pin_code;
-        $this->address = auth()->user()->userDetail->address;
+public function render()
+{
+    $user = auth()->user();
 
-        $this->totalProductAmount = $this->totalProductAmount();
-        return view('livewire.frontend.checkout.checkout-show',[
-            'totalProductAmount' => $this->totalProductAmount
-        ]);
+    if ($user) {
+        $this->fullname = $user->name;
+        $this->email = $user->email;
+        
+        $userDetail = $user->userDetail;
+        if ($userDetail) {
+            $this->phone = $userDetail->phone;
+            $this->pincode = $userDetail->pin_code;
+            $this->address = $userDetail->address;
+        }
     }
+
+    $this->totalProductAmount = $this->totalProductAmount();
+    
+    return view('livewire.frontend.checkout.checkout-show', [
+        'totalProductAmount' => $this->totalProductAmount
+    ]);
+}
+
 }

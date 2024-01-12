@@ -116,7 +116,7 @@ if($this->product->where('id',$productId)->where('status','0')->exists())
             $productColor = $this->product->productColors()->where('id',$this->productColorId)->first();
             if($productColor->quantity > 0)
             {
-                if($productColor->quantity > $this->quantityCount)
+                if($productColor->quantity >= $this->quantityCount)
                 {
             // Insert Product to Cart
                     Cart::create([
@@ -135,7 +135,7 @@ if($this->product->where('id',$productId)->where('status','0')->exists())
                 else
                 {
                     $this->dispatchBrowserEvent('message' , [
-                        'text' => 'Only'.$productColor->quantity.'Quantity Available',
+                        'text' => 'Only' .$productColor->quantity. 'Quantity Available',
                         'type' => 'warning',
                         'status' => 404
                     ]);
@@ -176,7 +176,7 @@ if($this->product->where('id',$productId)->where('status','0')->exists())
     if($this->product->quantity > 0)
     {
 
-        if($this->product->quantity > $this->quantityCount)
+        if($this->product->quantity >= $this->quantityCount)
         {
 
                 Cart::create([
@@ -194,7 +194,7 @@ if($this->product->where('id',$productId)->where('status','0')->exists())
         else
         {
             $this->dispatchBrowserEvent('message' , [
-                'text' => 'Only'.$this->product->quantity.'Quantity Available',
+                'text' => 'Only' .$this->product->quantity. 'Quantity Available',
                 'type' => 'warning',
                 'status' => 404
             ]);

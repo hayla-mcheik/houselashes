@@ -87,5 +87,12 @@
             </a>
           </li>
 
+
+          <li class="nav-item">
+            <a class="nav-link">
+            <i class="mdi mdi-settings menu-icon"></i>
+              <span class="menu-title">Pages</span>
+            </a>
+          </li>
         </ul>
       </nav>

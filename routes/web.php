@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail; // Import the Mail facade
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +20,14 @@ p. Make something great!
 //     return view('welcome');
 // });
 
-Auth::routes();
+Auth::routes([
+    'verify' => true
+]);
+
 
 
 Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
-    Route::get('/','index');
+    Route::get('/','index')->middleware('verified');
     Route::get('/collections','categories');
     Route::get('/collections/{category_slug}','products');
     Route::get('/collections/{category_slug}/{product_slug}','productView');
