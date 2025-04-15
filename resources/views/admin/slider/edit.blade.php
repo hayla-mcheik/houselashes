@@ -31,10 +31,13 @@
 </div>
 
 <div class="mb-3">
-        <label>Image</label>
-        <input type="file" name="image" class="form-control" />
-        <img src="{{ asset("$slider->image") }}" style="width:50px; height:50px" alt="Slider" />
+    <label>Image</label>
+    <input type="file" name="image" class="form-control">
+    @if($slider->image)
+        <img src="{{ asset($slider->image) }}" alt="Slider Image" width="100" height="100" class="mt-2">
+    @endif
 </div>
+
 
 <div class="mb-3">
         <label>Status</label>

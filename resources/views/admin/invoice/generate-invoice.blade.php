@@ -180,7 +180,7 @@
 @endforeach
 <tr>
     <td colspan="4" class="total-heading">Total Amount - <small>Inc. all vat/tax</small>:</td>
-    <td colspan="1" class="total-heading">${{ $totalPrice }}</td>
+    <td colspan="1" class="total-heading">${{ $totalPrice + 3 }}</td>
 </tr>
 </tbody>
     </table>

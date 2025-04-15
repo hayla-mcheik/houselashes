@@ -56,7 +56,6 @@
                 <h6>Email Id: {{ $order->email }}</h6>
                 <h6>Phone: {{ $order->phone }}</h6>
                 <h6>Address: {{ $order->address }}</h6>
-                <h6>Pin code: {{ $order->pincode }}</h6>
     
 </div>
 </div>
@@ -104,15 +103,15 @@
 
 <td width="10%">${{  $orderItem->price }}</td>
 <td width="10%">{{  $orderItem->quantity }}</td>
-<td width="10%" class="fw-bold">${{  $orderItem->quantity * $orderItem->price }}</td>
+<td width="10%" class="fw-bold">${{ $orderItem->quantity * $orderItem->total_amount }}</td>
 @php
-    $totalPrice += $orderItem->quantity * $orderItem->price;
-    @endphp
+$totalPrice += $orderItem->quantity * $orderItem->total_amount;
+@endphp
 </tr>
 @endforeach
 <tr>
-    <td colspan="5" class="fw-bold">Total Amount:</td>
-    <td colspan="1" class="fw-bold">${{ $totalPrice }}</td>
+<td colspan="5" class="fw-bold">Total Amount With $3 shipping:</td>
+<td colspan="1" class="fw-bold">${{ $totalPrice + 3 }}</td>
 </tr>
 </tbody>
 </table>

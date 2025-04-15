@@ -91,77 +91,18 @@ public function addToCart(int $productId)
 {
     if(Auth::check())
     {
+        if(Auth::user()->role_as == '1')
+        {
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'Only User can add to cart',
+                'type' => 'warning',
+                'status' => 200
+            ]);  
+            return;
+        }
 // dd($productId);
 if($this->product->where('id',$productId)->where('status','0')->exists())
 {
-
-    //check for Product color quantity and add to cart
-    if($this->product->productColors()->count() > 1)
-    {
-
-        if($this->prodColorSelectedQuantity != Null)
-        {
-            if(Cart::where('user_id',auth()->user()->id)
-            ->where('product_color_id',$this->productColorId)
-            ->exists())
-            {
-                $this->dispatchBrowserEvent('message' , [
-                    'text' => 'Product Already Added',
-                    'type' => 'warning',
-                    'status' => 200
-                ]);
-            }
-            else
-            {      
-            $productColor = $this->product->productColors()->where('id',$this->productColorId)->first();
-            if($productColor->quantity > 0)
-            {
-                if($productColor->quantity >= $this->quantityCount)
-                {
-            // Insert Product to Cart
-                    Cart::create([
-                        'user_id' => auth()->user()->id,
-                        'product_id' => $productId,
-                        'product_color_id' => $this->productColorId,
-                        'quantity' => $this->quantityCount
-                    ]);
-                    $this->emit('CartAddedUpdated');
-                    $this->dispatchBrowserEvent('message' , [
-                        'text' => 'Product Added to Cart',
-                        'type' => 'success',
-                        'status' => 200
-                    ]);
-                }
-                else
-                {
-                    $this->dispatchBrowserEvent('message' , [
-                        'text' => 'Only' .$productColor->quantity. 'Quantity Available',
-                        'type' => 'warning',
-                        'status' => 404
-                    ]);
-                }
-            }
-            else 
-            {
-                $this->dispatchBrowserEvent('message' , [
-                    'text' => 'Out of Stock',
-                    'type' => 'warning',
-                    'status' => 404
-                ]);
-            }
-        }
-        }
-        else
-        {
-        $this->dispatchBrowserEvent('message' , [
-            'text' => 'Select Your Product Color',
-            'type' => 'warning',
-            'status' => 404
-        ]);
-        }
-    }
-    else
-    {
 
     if(Cart::where('user_id',auth()->user()->id)->where('product_id',$productId)->exists())
     {
@@ -182,7 +123,7 @@ if($this->product->where('id',$productId)->where('status','0')->exists())
                 Cart::create([
                     'user_id' => auth()->user()->id,
                     'product_id' => $productId,
-                    'quantity' => $this->quantityCount
+                    'quantity' => 1,
                 ]);
                 $this->emit('CartAddedUpdated');
                 $this->dispatchBrowserEvent('message' , [
@@ -209,7 +150,7 @@ if($this->product->where('id',$productId)->where('status','0')->exists())
         ]);
     }
 }
-}
+
 }
 else
 {

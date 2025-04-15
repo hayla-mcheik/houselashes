@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
       <div class="col-md-10">
         <h4>User Profile
-<a href="{{ url('change-password') }}" class="btn btn-warning float-end">Change Password ?</a>
+<a href="{{ url('change-password') }}" class="btn-signin float-end">Change Password ?</a>
 
         </h4>
         <div class="underline mb-4"></div>
@@ -27,12 +27,8 @@
 </ul>
 @endif
 
-    <div class="card shadow">
-        <div class="card-header bg-primary">
-            <h4 class="mb-0 text-white">User Details</h4>
-</div>
-
-<div class="card-body">
+               <div class="login-form-content">
+              <div class="login-form m-4">
     <form action="{{ url('profile') }}" method="POST">
         @csrf
 <div class="row">
@@ -59,13 +55,6 @@
 </div>
 
 
-<div class="col-md-6">
-        <div class="mb-3">
-            <label>Zip/Pin Code</label>
-            <input type="text" name="pin_code" value="{{ Auth::user()->userDetail->pin_code ?? '' }}" class="form-control" />
-</div>
-</div>
-
 
 <div class="col-md-6">
         <div class="mb-3">
@@ -74,8 +63,8 @@
 </div>
 </div>
 
-<div class="col-md-12">
-    <button type="submit" class="btn btn-primary">Save Data</button>
+<div class="col-md-12 mb-4">
+    <button type="submit" class="btn-signin">Save Data</button>
 </div>
 
 </div>

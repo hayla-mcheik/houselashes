@@ -1,102 +1,158 @@
 <div>
-<div class="py-3 py-md-4 checkout">
-        <div class="container">
-            <h4>Checkout</h4>
-            <hr>
-
-@if($this->totalProductAmount != '0')
-
-            <div class="row">
-                <div class="col-md-12 mb-4">
-                    <div class="shadow bg-white p-3">
-                        <h4 class="text-primary">
-                            Item Total Amount :
-                            <span class="float-end">${{ $this->totalProductAmount }}</span>
-                        </h4>
-                        <hr>
-                        <small>* Items will be delivered in 3 - 5 days.</small>
-                        <br/>
-                        <small>* Tax and other charges are included ?</small>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="shadow bg-white p-3">
-                        <h4 class="text-primary">
-                            Basic Information
-                        </h4>
-                        <hr>
-
-                        <form action="" method="POST">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label>Full Name</label>
-                                    <input type="text" wire:model.defer="fullname" class="form-control" placeholder="Enter Full Name" />
-                               @error('fullname') <small class="text-danger">{{ $message }}</small>@enderror
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label>Phone Number</label>
-                                    <input type="number"  wire:model.defer="phone" class="form-control" placeholder="Enter Phone Number" />
-                                    @error('phone') <small class="text-danger">{{ $message }}</small>@enderror
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label>Email Address</label>
-                                    <input type="email"  wire:model.defer="email" class="form-control" placeholder="Enter Email Address" />
-                                    @error('email') <small class="text-danger">{{ $message }}</small>@enderror
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label>Pin-code (Zip-code)</label>
-                                    <input type="number"  wire:model.defer="pincode" class="form-control" placeholder="Enter Pin-code" />
-                                    @error('pincode') <small class="text-danger">{{ $message }}</small>@enderror
-                                </div>
-                                <div class="col-md-12 mb-3">
-                                    <label>Full Address</label>
-                                    <textarea  wire:model.defer="address" class="form-control" rows="2"></textarea>
-                                    @error('address') <small class="text-danger">{{ $message }}</small>@enderror
-                                </div>
-                                <div class="col-md-12 mb-3">
-                                    <label>Select Payment Mode: </label>
-                                    <div class="d-md-flex align-items-start">
-                                        <div class="nav col-md-3 flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                            <button class="nav-link active fw-bold" wire:loading.attr="disabled" id="cashOnDeliveryTab-tab" data-bs-toggle="pill" data-bs-target="#cashOnDeliveryTab" type="button" role="tab" aria-controls="cashOnDeliveryTab" aria-selected="true">Cash on Delivery</button>
-                                            <button class="nav-link fw-bold" wire:loading.attr="disabled" id="onlinePayment-tab" data-bs-toggle="pill" data-bs-target="#onlinePayment" type="button" role="tab" aria-controls="onlinePayment" aria-selected="false">Online Payment</button>
+    <!--== Start Product Area Wrapper ==-->
+    <section class="product-area">
+        <div class="container" data-padding-top="62">
+            <div class="shopping-cart-wrap">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="shopping-checkout-content">
+                            <div class="checkout-accordion" id="accordionExample">
+                                <div class="checkout-accordion-item">
+                                    <h2 class="heading" id="headingTwo">
+                                        <button class="heading-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <span class="step-number">1</span>
+                                            Personal Information
+                                            <span class="step-edit"><i class="fa fa-pencil"></i> edit</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="checkout-accordion-body" data-margin-top="14">
+                                            <div class="personal-addresses">
+                                                <p class="p-text">The selected address will be used both as your personal address (for invoice) and as your delivery address.</p>
+                                                <div class="personal-information">
+                                                    <ul>
+                                                        <li>Not you? <a href="#/">Log out</a></li>
+                                                        <li><small>If you sign out now, your cart will be emptied.</small></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="delivery-address-form">
+                                                    <form wire:submit.prevent="validatePersonalInformation">
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3" for="f_name">First name</label>
+                                                            <div class="col-md-6">
+                                                                <input id="f_name" wire:model.defer="fullname" class="form-control" type="text">
+                                                                @error('fullname') <span class="text-danger">{{ $message }}</span> @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3" for="frm_address">Address</label>
+                                                            <div class="col-md-6">
+                                                                <input id="frm_address" wire:model.defer="address" class="form-control" type="text">
+                                                                @error('address') <span class="text-danger">{{ $message }}</span> @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3" for="frm-phone">Phone</label>
+                                                            <div class="col-md-6">
+                                                                <input id="frm-phone" wire:model.defer="phone" class="form-control" type="tel">
+                                                                @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3" for="frm-email">Email</label>
+                                                            <div class="col-md-6">
+                                                                <input id="frm-email" wire:model.defer="email" class="form-control" type="email">
+                                                                @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-md-12 text-end">
+                                                                <button type="submit" class="btn-submit">Continue</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="tab-content col-md-9" id="v-pills-tabContent">
-                                            <div class="tab-pane active show fade" id="cashOnDeliveryTab" role="tabpanel" aria-labelledby="cashOnDeliveryTab-tab" tabindex="0">
+                                    </div>
+                                </div>
+
+                                <div class="checkout-accordion-item">
+                                    <h2 class="heading" id="headingThree">
+                                        <button class="heading-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" @if(!$isPersonalInfoValid) disabled @endif>
+                                            <span class="step-number">3</span>
+                                            Payment
+                                            <span class="step-edit"><i class="fa fa-pencil"></i> edit</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="checkout-accordion-body" data-margin-top="14">
+                                            <div class="personal-addresses">
                                                 <h6>Cash on Delivery Mode</h6>
                                                 <hr/>
                                                 <button type="button" wire:loading.attr="disabled" wire:click="codOrder" class="btn btn-primary">
                                                     <span wire:loading.remove wire:target="codOrder">
-                                                    Place Order (Cash on Delivery)
-                                                      </span>
-                                                      <span wire:loading wire:target="codOrder">
-                                                    Placing Order 
-                                                      </span>
+                                                        Place Order (Cash on Delivery)
+                                                    </span>
+                                                    <span wire:loading wire:target="codOrder">
+                                                        Placing Order
+                                                    </span>
                                                 </button>
-
                                             </div>
-                                            <div class="tab-pane fade" id="onlinePayment" role="tabpanel" aria-labelledby="onlinePayment-tab" tabindex="0">
-                                                <h6>Online Payment Mode</h6>
-                                                <hr/>
-                                                <button type="button" wire:loading.attr="disabled" class="btn btn-warning">Pay Now (Online Payment)</button>
-                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shopping-checkout-disabled">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="col-md-9 ml-1">
+                            <p>If you have a promo code, please enter the code to get a discount.</p>
+                            <div class="promocode d-flex justify-content-between">
+                                <div class="form-group">
+                                    <input class="form-control promocode" wire:model="promoCode" type="text" name="promocode" placeholder="Discount Code" />
+                                </div>
+                                <div class="btn btn-promocode-apply" wire:click="applyPromoCode" type="button">Apply</div>
+                            </div>
+                        </div>
+                        @if($promoCodeApplied)
+                            <div class="border-promocode m-2">
+                                <span class="applied-promo-code mt-4" style="background-color: #f0808029; padding: 10px; font-weight: 600;">
+                                    Promo Code: <i class="fa fa-tag"></i> {{ $promoCode }}
+                                </span>
+                            </div>
+                        @endif
+                        @if($totalProductAmount != 0)
+                            <div class="shopping-cart-summary mt-md-70 mt-2">
+                                <div class="cart-detailed-totals">
+                                    <div class="card-block">
+                                        <div class="card-block-item">
+                                            {{-- <span class="label">2 items</span> --}}
+                                        </div>
+                                        <div class="card-block-item">
+                                            <span class="label">show details</span>
+                                        </div>
+                                        <div class="card-block-item">
+                                            <span class="label">Subtotal</span>
+                                            <span class="value">${{ $totalProductAmount }}</span>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
-                        </form>
-
+                        @endif
+                        <div class="block-reassurance">
+                            <ul>
+                                <li>
+                                    <img src="assets/img/shop/cart/verified-user.png" alt="Has-Image">
+                                    <span>Security Policy (Edit With Customer Reassurance Module)</span>
+                                </li>
+                                <li>
+                                    <img src="assets/img/shop/cart/local-shipping.png" alt="Has-Image">
+                                    <span>Delivery Policy (Edit With Customer Reassurance Module)</span>
+                                </li>
+                                <li>
+                                    <img src="assets/img/shop/cart/swap-horiz.png" alt="Has-Image">
+                                    <span>Return Policy (Edit With Customer Reassurance Module)</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-
             </div>
-@else
-<div class="card card-body shadow text-center p-md-5">
-    <h4>No items in cart to checkout</h4>
-    <a href="{{ url('collections') }}" class="btn btn-warning" >Shop now</a>
-</div>
-
-@endif
         </div>
-    </div>
+    </section>
+    <!--== End Product Area Wrapper ==-->
 </div>

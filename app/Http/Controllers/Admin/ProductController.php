@@ -25,9 +25,8 @@ class ProductController extends Controller
      public function create()
     {
         $categories=Category::all();
-        $brands = Brand::all();
         $colors = Color::where('status','0')->get();
-        return view('admin.products.create',compact('categories','brands','colors'));
+        return view('admin.products.create',compact('categories','colors'));
     }
 
     public function store(ProductFormRequest $request)
@@ -39,7 +38,6 @@ class ProductController extends Controller
             'category_id' => $validatedData['category_id'],
             'name' => $validatedData['name'],
             'slug' => Str::slug($validatedData['slug']),
-            'brand' => $validatedData['brand'],
             'small_description' => $validatedData['small_description'],
             'description' => $validatedData['description'],
             'original_price' => $validatedData['original_price'],
@@ -90,11 +88,10 @@ if($request->colors){
 public function edit(int $product_id)
 {
     $categories=Category::all();
-    $brands = Brand::all();
 $product= Product::findOrFail($product_id);
 $product_color = $product->productColors->pluck('color_id')->toArray();
 $colors = Color::whereNotIn('id',$product_color)->get();
-return view('admin.products.edit',compact('categories','brands','product','colors'));
+return view('admin.products.edit',compact('categories','product','colors'));
 }
 
 public function update(ProductFormRequest $request , int $product_id)
@@ -108,7 +105,6 @@ $product->update([
     'category_id' => $validatedData['category_id'],
     'name' => $validatedData['name'],
     'slug' => Str::slug($validatedData['slug']),
-    'brand' => $validatedData['brand'],
     'small_description' => $validatedData['small_description'],
     'description' => $validatedData['description'],
     'original_price' => $validatedData['original_price'],

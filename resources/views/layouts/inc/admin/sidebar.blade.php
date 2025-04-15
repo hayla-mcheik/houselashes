@@ -43,19 +43,9 @@
               </ul>
             </div>
 </li>
-          <li class="nav-item {{ Request::is('admin/brands') ? 'active':'' }}">
-            <a class="nav-link" href="/admin/brands">
-            <i class="mdi mdi-label  menu-icon"></i>
-              <span class="menu-title">Brands</span>
-            </a>
-          </li>
+       
 
-          <li class="nav-item {{ Request::is('admin/colors') ? 'active':'' }}">
-            <a class="nav-link" href="/admin/colors">
-            <i class="mdi mdi-palette  menu-icon"></i>
-              <span class="menu-title">Colors</span>
-            </a>
-          </li>
+
 
           <li class="nav-item {{ Request::is('admin/users*') ? 'active':'' }}">
             <a class="nav-link" data-bs-toggle="collapse" 
@@ -80,6 +70,27 @@
             </a>
           </li>
     
+          <li class="nav-item {{ Request::is('admin/reviews') ? 'active':'' }}">
+            <a class="nav-link" href="{{ url('admin/reviews') }}">
+              <i class="mdi mdi-star-outline menu-icon"></i>
+              <span class="menu-title">Reviews</span>
+            </a>
+          </li>
+          
+                    <li class="nav-item {{ Request::is('admin/promocode') ? 'active':'' }}">
+            <a class="nav-link" href="{{ url('admin/promocode') }}">
+              <i class="mdi mdi-ticket-percent menu-icon"></i>
+
+              <span class="menu-title">PromoCode </span>
+            </a>
+          </li>
+          <li class="nav-item {{ Request::is('admin/blogs') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('admin/blogs') }}">
+                <i class="mdi mdi-book-open-variant menu-icon"></i>
+                <span class="menu-title">Blogs</span>
+            </a>
+        </li>
+        
           <li class="nav-item {{ Request::is('admin/settings') ? 'active':'' }}">
             <a class="nav-link" href="{{ url('admin/settings') }}">
             <i class="mdi mdi-settings menu-icon"></i>
@@ -87,12 +98,5 @@
             </a>
           </li>
 
-
-          <li class="nav-item">
-            <a class="nav-link">
-            <i class="mdi mdi-settings menu-icon"></i>
-              <span class="menu-title">Pages</span>
-            </a>
-          </li>
         </ul>
       </nav>

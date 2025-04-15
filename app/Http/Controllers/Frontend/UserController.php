@@ -18,8 +18,7 @@ public function updateUserDetails(Request $request)
 {
     $request->validate([
 'username' => ['required','string'],
-'phone'=>['required','digits:10'],
-'pin_code'=>['required','digits:6'],
+'phone'=>['required','digits:8'],
 'address'=>['required','string','max:499'],
     ]);
 $user = User::findOrFail(Auth::user()->id);
@@ -33,7 +32,6 @@ $user->userDetail()->updateOrCreate(
     ],
 [
 'phone' => $request->phone,
-'pin_code' => $request->pin_code,
 'address'=> $request->address,
 ]
 );
@@ -67,5 +65,13 @@ public function changePassword(Request $request)
         return redirect()->back()->with('message','Current Password does not match with Old Password');
     }
 }
+
+public function account()
+{
+    return view('frontend.account.index');
+}
+
+
+
 }
 

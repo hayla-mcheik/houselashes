@@ -43,10 +43,7 @@
   </li>
 
 
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="color-tab" data-bs-toggle="tab" data-bs-target="#color-tab-pane" type="button" role="tab" aria-controls="image-tab-pane" aria-selected="false">
-        Product Color</button>
-  </li>
+
 
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -72,14 +69,6 @@
     <input type="text" class="form-control" name="slug" />
 </div>
 
-<div class="mb-3">
-    <label>Select Brand</label>
-    <select name="brand" class="form-control">
-        @foreach ($brands as $brand)
-        <option value="{{ $brand->name }}">{{ $brand->name }}</option>
-        @endforeach
-</select>
-</div>
 
 <div class="mb-3">
     <label>Small Description(500 words)</label>
@@ -167,32 +156,6 @@
 <div class="mb-3">
     <label>Upload Images</label>
     <input type="file" name="image[]" multiple class="form-control">
-</div>
-</div>
-
-
-<div class="tab-pane fade border p-3" id="color-tab-pane" role="tabpanel" aria-labelledby="color-tab" tabindex="0">
-
-<div class="mb-3">
-    <label>Select Color</label>
-    <hr />
-    <div class="row">
-        @forelse($colors as $coloritem)
-        <div class="col-md-3">
-            <div class="p-2 border mb-3">
-            <input type="checkbox" name="colors[{{ $coloritem->id }}]" value="{{ $coloritem->id }}" >
-        {{ $coloritem->name }}
-        <br/>
-            Quantity: <input type="number" name="colorquantity[{{ $coloritem->id }}]" style="width:70px;border:1px solid" />
-        </div>
-</div>
-@empty
-<div class="col-md-12">
-<h1>No Colors Found</h1>
-</div>
- @endforelse
-
-</div>
 </div>
 </div>
 </div>

@@ -12,18 +12,27 @@
 @endsection
 
 @section('content')
-<div class="py-3 py-md-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h4 class="mb-4">Our Products</h4>
-                </div>
+<div class="page-header-area bg-img" data-bg-img="{{ asset('assets/img/bg-02.webp') }}">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="page-header-content">
+            <nav class="breadcrumb-area">
+              <ul class="breadcrumb">
+                <li><a href="{{ url('/') }}">Home</a></li>
+                <li class="breadcrumb-sep"><i class="fa fa-angle-right"></i></li>
+                <li>Products</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-                <livewire:frontend.product.index :category="$category" :categories="$categories" />
+                <livewire:frontend.product.index :category="$category" :categories="$categories" :inStockCount="$inStockCount" :outOfStockCount="$outOfStockCount" />
 
       
-</div>
-</div>
-</div>
+
+
 @endsection

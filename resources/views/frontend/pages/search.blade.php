@@ -2,55 +2,75 @@
 
 @section('title','Search Products')
 @section('content')
+<div class="page-header-area bg-img" data-bg-img="{{ asset('assets/img/bg-02.webp') }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="page-header-content">
+          <nav class="breadcrumb-area">
+            <ul class="breadcrumb">
+              <li><a href="{{ url('/') }}">Home</a></li>
+              <li class="breadcrumb-sep"><i class="fa fa-angle-right"></i></li>
+              <li>Search Results</li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="py-5 bg-white">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-10">
-        <h4>Search Results</h4>
-        <div class="underline mb-4"></div>
-</div>
+
 @forelse ($searchProducts as $productItem)
-<div class="col-md-10">
-<div class="product-card">
-<div class="row">
-    <div class="col-md-3">
-    <div class="product-card-img">
-                            <label class="stock bg-success">New</label>
-                            @if($productItem->productImages->count() > 0)
-                            <a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">
-                            <img src="{{ asset($productItem->productImages[0]->image) }}" alt="{{ $productItem->name }}">
-                                </a>
-                            @endif
-                        </div>
-</div>
-<div class="col-md-9">
-     
-<div class="product-card-body">
-                            <p class="product-brand">{{ $productItem->brand }}</p>
-                            <h5 class="product-name">
-                               <a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">
-                                 {{ $productItem->name }}
-                               </a>
-                            </h5>
-                            <div>
-                                <span class="selling-price">{{ $productItem->selling_price }}</span>
-                                <span class="original-price">{{ $productItem->original_price }}</span>
-                            </div>
+<div class="col-sm-6 col-md-3 mt-5 mb-5">
+  <!--== Start Shop Item ==-->
+  <div class="product-item">
+    <div class="inner-content">
+      <div class="product-thumb">
 
-                            <p style="height: 45px; overflow: hidden">
-                           <b>Description:</b> {{ $productItem->description }}
-                                </p>
-                    <a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}" 
-                    class="btn btn-outline-primary">
-                    View More
-                </a>
-                        </div>
-</div>
-</div>
+          @if($productItem->productImages->count() > 0)    
+          <a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">
+              <img src="{{ asset($productItem->productImages[0]->image) }}" alt="{{ $productItem->name }}">
+              @if($productItem->productImages->count() > 1)
+                  <img class="second-image" src="{{ asset($productItem->productImages[1]->image) }}" alt="{{ $productItem->name }}">
+              @endif
+          </a>
+      @endif
 
-</div>
-</div>
 
+        <ul class="product-flag">
+          <li class="new">
+            @if ($productItem->quantity > 0)
+            <span>In Stock</span>
+        @else
+          Out of Stock
+        @endif</li>
+          <li class="discount">-10%</li>
+        </ul>
+      </div>
+      <div class="product-desc">
+          <div class="product-info">
+            <h4 class="title"><a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">{{ $productItem->small_description }}</a></h4>
+            <div class="star-content">
+              @for ($i = 0; $i < 5; $i++)
+                  <i class="ion-md-star{{ $i < $productItem->rating ? '' : '-outline' }}"></i>
+              @endfor
+          </div>
+          <div class="prices">
+              @if($productItem->original_price)
+                  <span class="price-old">${{ $productItem->original_price }}</span>
+              @endif
+              <span class="price">${{ $productItem->selling_price }}</span>
+          </div>
+
+          </div>
+
+        </div>                          </div>
+  </div>
+  <!--== End Shop Item ==-->
+</div>
 
 
 @empty

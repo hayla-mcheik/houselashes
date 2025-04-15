@@ -28,10 +28,9 @@
         <label>Description</label>
         <input type="text" name="description" class="form-control" rows="3">
 </div>
-
-<div class="mb-3">
-        <label>Image</label>
-        <input type="file" name="image" class="form-control">
+<div class="form-group mb-3">
+    <label for="image">Image</label>
+    <input type="file" name="image" class="form-control">
 </div>
 
 <div class="mb-3">

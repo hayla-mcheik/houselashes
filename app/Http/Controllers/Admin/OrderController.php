@@ -17,7 +17,7 @@ class OrderController extends Controller
         })
         ->when($request->status != null, function ($q) use ($request) {
             return $q->where('status_message', $request->status);
-        })
+        })->orderBy('created_at', 'desc') 
         ->paginate(10);
 
         return view('admin.orders.index', compact('orders'));
@@ -25,7 +25,9 @@ class OrderController extends Controller
 
     public function show(int $orderId)
     {
+ 
         $order = Order::where('id',$orderId)->first();
+         
         if($order)
         {
             return view('admin.orders.view',compact('order'));
