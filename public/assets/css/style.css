@@ -3018,7 +3018,7 @@ section .container-fluid {
 }
 @media only screen and (max-width: 1199px) {
   .home-slider-area .home-slider-container .home-slider-wrapper.slider-default .slider-content-area .slider-content .title {
-    font-size: 50px;
+    font-size: 20px;
   }
 }
 @media only screen and (max-width: 991px) {
