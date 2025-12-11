@@ -46,7 +46,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <p class="copyright">Copyright © 2024 All Rights Reserved | Made with <i class="fa fa-heart-o"></i> by <a target="_blank" href="https://www.hayla.site">__Hayla.</a></p>
+            <p class="copyright">Copyright © 2025 All Rights Reserved | Made with <i class="fa fa-heart-o"></i> by <a target="_blank" href="https://www.hayla.site">__Hayla.</a></p>
           </div>
           <div class="col-lg-6">
             <div class="payment">

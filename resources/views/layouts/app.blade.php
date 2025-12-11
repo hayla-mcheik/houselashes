@@ -102,7 +102,7 @@
                     <div class="icon-box">
                       <i class="icon las la-phone-volume"></i>
                     </div>
-                    <p>+96171922944 M-F 9AM-6PM</p>
+                    <p>(800) 513-7936 M-F 9AM-6PM</p>
                   </div>
                 </div>
                 <div class="col-border col-12 col-md-4 col-sm-6 mt-xs-35">
@@ -110,7 +110,7 @@
                     <div class="icon-box">
                       <i class="icon las la-envelope"></i>
                     </div>
-                    <p>houselashess@gmail.com</p>
+                    <p>info@lakanto.me</p>
                   </div>
                 </div>
                 <div class="col-border col-12 col-md-4 col-sm-12 mt-sm-35">
@@ -118,7 +118,7 @@
                     <div class="icon-box">
                       <i class="icon lab la-facebook-messenger"></i>
                     </div>
-                    <p>Virtual Chat 24/7 | Live M-F 9am-6pm</p>
+                    <p> Live M-F 9am-6pm</p>
                   </div>
                 </div>
               </div>

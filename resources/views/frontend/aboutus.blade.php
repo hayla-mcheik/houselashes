@@ -36,7 +36,7 @@
             </div>
             <div class="col-md-6">
               <div class="about-thumb">
-                <img src="{{ asset('assets/img/about/01.jpg')}}" alt="Image-HasTech" class="img">
+                <img src="{{ asset('assets/img/banner/banner.webp')}}" alt="Image-HasTech" class="img">
               </div>
             </div>
           </div>

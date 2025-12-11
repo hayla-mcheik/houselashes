@@ -20,9 +20,9 @@
                   <div class="row">
                     <div class="col-10 col-sm-6 col-md-5">
                       <div class="slider-content slider-content-light animate-flipInX">
-                        <h5 class="sub-title transition-slide-0">{{ $sliderItem->title }}</h5>
-                        <h2 class="title transition-slide-1 mb-0"><span class="font-weight-400">{{ $sliderItem->description }}</span></h2>
-                        <a class="btn-slide transition-slide-3" href="{{url('collections') }}">Shop Now</a>
+                        {{-- <h5 class="sub-title transition-slide-0">{{ $sliderItem->title }}</h5>
+                        <h2 class="title transition-slide-1 mb-0"><span class="font-weight-400">{{ $sliderItem->description }}</span></h2> --}}
+                        {{-- <a class="btn-slide transition-slide-3" href="{{url('collections') }}">Shop Now</a> --}}
                       </div>
                     </div>
                   </div>
@@ -147,19 +147,14 @@
       <!--== End Product Area Wrapper ==-->
 
   <!--== End Popup Product  ==-->
-      <section class="divider-area divider-product-discount-area bg-img" data-bg-img="{{ asset('assets/img/slider-09.webp')}}" style="background-image: url(&quot;assets/img/photos/bg-01.jpg&quot;);">
+      <section class="divider-area divider-product-discount-area bg-img" data-bg-img="{{ asset('assets/img/banner/banner.webp')}}" style="background-image: url(&quot;assets/img/photos/bg-01.jpg&quot;);">
         <div class="container">
           <div class="row">
             <div class="col-12">
               <div class="divider-style2-wrap">
                 <div class="row">
                   <div class="col-xl-4">
-                    <div class="divider-content">
-                      <h5 class="sub-title">NATURAL SKINCARE</h5>
-                      <h2 class="title">40% Off</h2>
-                      <p>No Parabens. No Sulfates. No Compromises. Shop Clean Beauty.</p>
-                      <a class="btn-theme btn-white" href="{{ url('collections') }}">Shop Now</a>
-                    </div>
+
                   </div>
                 </div>
               </div>
@@ -398,6 +393,9 @@
     }
 })
   </script>
+  <style scoped>
+
+  </style>
 
 @endsection
 

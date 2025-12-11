@@ -138,7 +138,7 @@
                 <div class="contact-link float-start">
                   <div class="phone">
                     <span>Call us:</span>
-                    <a href="tel:+96171922944">+96171922944</a>
+                    <a href="tel:(800) 513-7936">(800) 513-7936</a>
                   </div>
                 </div>
                 <div class="header-action-area float-start">

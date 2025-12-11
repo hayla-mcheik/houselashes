@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-lg-4 hidden-md-down">
             <div class="contact-email">
-              <span>Email us: <a href="mailto:houselashes@gmail.com">houselashes@gmail.com</a></span>
+              <span>Email us: <a href="mailto:info@lakanto.me">info@lakanto.me</a></span>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 text-md-start text-lg-center text-center">
@@ -80,20 +80,7 @@
               </ul>
             </div>
             @endif
-            <div class="theme-currency">
-              <a class="dropdown-btn" href="#" role="button">
-                EUR €
-                <i class="ion-ios-arrow-down"></i> 
-              </a>
-              <ul class="dropdown-content">
-                <li>
-                  <a href="#/">EUR €</a>
-                </li>
-                <li>
-                  <a href="#/">USD $</a>
-                </li>
-              </ul>
-            </div>
+         
             <div class="theme-language">
               <a class="dropdown-btn" href="#" role="button">
                 <img src="{{ asset('assets/img/photos/language-01.jpg')}}" alt="Has-Image">English
@@ -121,7 +108,7 @@
           <div class="col col-md-4 col-sm-12">
             <div class="contact-link">
               <div class="contact-info">
-                <span class="phone">Call Us: <a href="tel:+961922944">+96171922944</a></span>
+                <span class="phone">Call Us: <a href="tel:(800) 513-7936">(800) 513-7936</a></span>
                 <div class="time-contact">5 Days a week from 4:00 am to 10:00 pm</div>
               </div>
             </div>
@@ -189,7 +176,7 @@
                 <ul class="main-menu nav">
                   <li><a href="{{ url('/') }}">Home</a>
                       <li><a href="{{ url('aboutus') }}">About Us</a></li>
-                      <li><a href="{{ url('collections')}}">Shop</a>
+                      <li><a href="{{ url('collections')}}">Products</a>
                  
                       <li><a href="{{ url('blogs')}}">Blog</a>           
                       </li>
