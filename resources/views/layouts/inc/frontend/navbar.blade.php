@@ -174,11 +174,11 @@
             <div class="header-align align-default justify-content-center">
               <div class="header-navigation-area hidden-md-down">
                 <ul class="main-menu nav">
-                  <li><a href="{{ url('/') }}">Home</a>
-                      <li><a href="{{ url('aboutus') }}">About Us</a></li>
-                      <li><a href="{{ url('collections')}}">Products</a>
+              
+                      <li><a href="{{ url('aboutus') }}">Why Lakanto MonkFruit</a></li>
+                      <li><a href="{{ url('collections')}}">Shop Products</a>
                  
-                      <li><a href="{{ url('blogs')}}">Blog</a>           
+                      <li><a href="{{ url('blogs')}}">Health News</a>           
                       </li>
                       <li><a href="{{ url('contactus') }}">Contact us</a></li>
                     </ul>

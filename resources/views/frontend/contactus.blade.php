@@ -115,7 +115,7 @@
                     <div class="info">
                       <h5 class="title">Phone:</h5>
                       <p>
-                        <a href="tel:+96171922944">+96171922944</a>
+                        <a href="tel:(800) 513-7936">(800) 513-7936</a>
                       </p>
                     </div>
                   </div>
@@ -123,14 +123,18 @@
                     <div class="info">
                       <h5 class="title">Email:</h5>
                       <p>
-                        <a href="mailto:houselashess@gmail.com">houselashess@gmail.com</a>
+                        <a href="mailto:info@lakanto.me">info@lakanto.me</a>
                       </p>
                     </div>
                   </div>
                   <div class="info-item">
                     <div class="info">
                       <h5 class="title">Address:</h5>
-                      <p>Beirut , kafaat</p>
+                      <p>Saraya Middle East Trading
+DMCC Business Center -
+Unit No. 46 - Gold Tower,
+Lake Level - Jumeirah Towers -
+Dubai, UAE</p>
                     </div>
                   </div>
                 </div>

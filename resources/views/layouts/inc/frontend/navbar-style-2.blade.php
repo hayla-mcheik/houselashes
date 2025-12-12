@@ -126,10 +126,10 @@
                 </div>
                 <div class="header-navigation-area hidden-md-down">
                   <ul class="main-menu nav position-relative">
-                    <li><a href="{{ url('aboutus') }}">About Us</a></li>
-                    <li><a href="{{ url('collections')}}">Shop</a>
+                    <li><a href="{{ url('aboutus') }}">Why Lakanto MonkFruit</a></li>
+                    <li><a href="{{ url('collections')}}">Shop Produts</a>
                
-                    <li><a href="{{ url('blogs')}}">Blog</a>           
+                    <li><a href="{{ url('blogs')}}">Health News</a>           
                     </li>
                     <li><a href="{{ url('contactus') }}">Contact us</a></li>
                 </div>

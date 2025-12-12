@@ -27,9 +27,9 @@
                 <div class="widget-item">
                   <div class="widget-menu-wrap">
                     <ul class="nav-menu">
-                      <li><a href="{{ url('aboutus') }}">About us</a></li>
+                      <li><a href="{{ url('aboutus') }}">Why Lakanto MonkFruit</a></li>
                       <li><a href="{{ url('contactus') }}">Contact us</a></li>
-                      <li><a href="{{ url('blogs') }}">Blogs</a></li>
+                      <li><a href="{{ url('blogs') }}">Health News</a></li>
                       <li><a href="{{ url('collections') }}">Stores</a></li>
                     </ul>
                   </div>
