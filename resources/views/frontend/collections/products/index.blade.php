@@ -12,6 +12,11 @@
 @endsection
 
 @section('content')
+<style>
+   .product-item{
+  margin-bottom: 10px;
+ }
+</style>
 <div class="page-header-area bg-img" data-bg-img="{{ asset('assets/img/bg-02.webp') }}">
     <div class="container">
       <div class="row">

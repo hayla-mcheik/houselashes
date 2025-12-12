@@ -157,25 +157,17 @@
                             <div class="product-desc">
                                 <div class="product-info">
                                   <h4 class="title"><a href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">{{ $productItem->small_description }}</a></h4>
-                                  <div class="star-content">
-                                    @for ($i = 0; $i < 5; $i++)
-                                        <i class="ion-md-star{{ $i < $productItem->rating ? '' : '-outline' }}"></i>
-                                    @endfor
-                                </div>
+                       
                                 <div class="prices">
                                     @if($productItem->original_price)
                                         <span class="price-old">${{ $productItem->original_price }}</span>
                                     @endif
                                     <span class="price">${{ $productItem->selling_price }}</span>
                                 </div>
-                
+                   <a class="btn-product-add" wire:click="addToCart({{ $productItem->id }})">Add to cart</a>
                                 </div>
                 
-                                <div class="product-footer">
-        
-                                  <a class="btn-product-add" wire:click="addToCart({{ $productItem->id }})">Add to cart</a>
-                                  <a class="btn-quick-view" href="javascript:;" title="Quick view">Quick view</a>
-                                </div>
+                      
                               </div>                          </div>
                         </div>
                         <!--== End Shop Item ==-->

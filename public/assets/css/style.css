@@ -3922,7 +3922,7 @@ section .container-fluid {
 -----------------------------------------------------------------------
 */
 .product-item .inner-content {
-  background-color: #fff;
+  background-color: #f3f3f3;
   position: relative;
   padding: 15px;
   text-align: center;
@@ -4066,6 +4066,7 @@ section .container-fluid {
 .product-item .inner-content .product-info {
   background-color: #fff;
   padding-top: 22px;
+  padding-bottom: 6px;
   text-align: center;
 }
 .product-item .inner-content .product-info .title {
@@ -4241,14 +4242,7 @@ section .container-fluid {
   z-index: 3;
 }
 .product-item .inner-content:hover:after {
-  bottom: -75px;
-  opacity: 1;
-  visibility: visible;
-  transform: rotateX(0deg);
-  -webkit-transform: rotateX(0deg);
-  -moz-transform: rotateX(0deg);
-  -ms-transform: rotateX(0deg);
-  -o-transform: rotateX(0deg);
+
 }
 .product-item .inner-content:hover .product-thumb .second-image {
   opacity: 1;
@@ -7631,3 +7625,12 @@ background-color: #fff;
   background-image: url('/assets/img/bannerrr.webp');
   background-size: cover;
 } */
+ .white-bg{
+  background-color: white;
+ }
+ .product-item .inner-content:hover {
+  overflow: hidden;
+ }
+ .product-footer{
+  display: none;
+ }

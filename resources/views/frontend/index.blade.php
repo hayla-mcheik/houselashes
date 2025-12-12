@@ -4,7 +4,6 @@
 
 
 
-
     <!--== Start Hero Area Wrapper ==-->
     <section class="home-slider-area">
         <div class="swiper-container swiper-pagination-style dots-bg-light home-slider-container default-slider-container">
@@ -81,8 +80,9 @@
                                     @endif 
                                           </a>
                                <livewire:frontend.indexwish :product="$product"/>
-
-
+                               <div class="white-bg">                           
+                               <livewire:frontend.cart.add-to-cart :product="$product"/>
+                               </div>
                                           <ul class="product-flag">
                                       
                                               <li class="new">
@@ -105,25 +105,18 @@
                                         <div class="product-desc">
                                           <div class="product-info">
                                             <h4 class="title"><a href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">{{ $product->name }}</a></h4>
-                                            <div class="star-content">
-                                              @for ($i = 0; $i < 5; $i++)
-                                                <i class="ion-md-star{{ $i < $product->rating ? '' : '-outline' }}"></i>
-                                              @endfor
-                                            </div>
+                                    
                                             <div class="prices">
                                               <span class="price-old">€{{ $product->original_price }}</span>
                                               <span class="price">€{{ $product->selling_price }}</span>
                                             </div>
+                                 
+
                                           </div>
 
 
                                  
-                                          <div class="product-footer">
-                                            <livewire:frontend.cart.add-to-cart :product="$product"/>
-                                            <a class="btn-quick-view" href="{{ url('/collections/'.$product->category->slug.'/'.$product->slug) }}">View Details</a>
-
-                                          </div>
-
+                                       
                                           
                                         </div>
                                       </div>
@@ -197,7 +190,9 @@
                         </a>
                     @endif
                     <livewire:frontend.indexwish :product="$product"/>
-
+    <div class="white-bg">                           
+                               <livewire:frontend.cart.add-to-cart :product="$product"/>
+                               </div>
                         <ul class="product-flag">
                           <li class="new">
                             @if ($productItem->quantity > 0)
@@ -217,11 +212,7 @@
                       <div class="product-desc">
                         <div class="product-info">
                           <h4 class="title"><a href="single-product.html">{{ $productItem->small_description }}</a></h4>
-                          <div class="star-content">
-                            @for ($i = 0; $i < 5; $i++)
-                                <i class="ion-md-star{{ $i < $productItem->rating ? '' : '-outline' }}"></i>
-                            @endfor
-                        </div>
+                 
                         <div class="prices">
                             @if($productItem->original_price)
                                 <span class="price-old">${{ $productItem->original_price }}</span>
@@ -235,11 +226,7 @@
                         @endif
                         </div>
      
-                        <div class="product-footer">
-                          <livewire:frontend.cart.add-to-cart :product="$product"/>
-                          <a class="btn-quick-view" href="{{ url('/collections/'.$productItem->category->slug.'/'.$productItem->slug) }}">View Details</a>
-
-                        </div>
+                 
                       </div>
                     </div>
                   </div>
@@ -318,7 +305,7 @@
           <div class="row">
             <div class="col-sm-8 m-auto">
               <div class="section-title text-center">
-                <h2 class="title">Latest Blogs</h2>
+                <h2 class="title">Latest News</h2>
                 <div class="desc">
                   <p>Present posts in a best way to highlight interesting moments of your blog.</p>
                 </div>
@@ -357,7 +344,11 @@
       <!--== End Blog Area Wrapper ==-->
 
 
-
+<style>
+   .product-item{
+  margin: 10px;
+ }
+</style>
       
       <!-- jQuery -->
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -372,6 +363,8 @@
         });
       </script>
 @endsection
+
+
 
 @section('script')
 <script>
